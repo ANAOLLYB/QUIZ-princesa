@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qual Princesa Você É?</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="princess-banner">
+    <img src="imagens/bela.png" alt="Bela" />
+    <img src="imagens/ariel.png" alt="Ariel" />
+    <img src="imagens/cinderela.png" alt="Cinderela" />
+    <img src="imagens/rapunzel.png" alt="Rapunzel" />
+    <img src="imagens/elsa.png" alt="Elsa" />
+  </header>
+
+  <main class="quiz-container">
+    <h1>✨ Qual Princesa da Disney Você É? ✨</h1>
+    <form id="quiz-form">
+      <div class="question">
+        <p>1️⃣ Qual dessas qualidades mais combina com você?</p>
+        <label><input type="radio" name="q1" value="bela"> Inteligente e sonhadora</label>
+        <label><input type="radio" name="q1" value="ariel"> Curiosa e destemida</label>
+        <label><input type="radio" name="q1" value="cinderela"> Gentil e perseverante</label>
+        <label><input type="radio" name="q1" value="rapunzel"> Criativa e alegre</label>
+        <label><input type="radio" name="q1" value="elsa"> Reservada e poderosa</label>
+      </div>
+
+      <div class="question">
+        <p>2️⃣ Qual ambiente te faz mais feliz?</p>
+        <label><input type="radio" name="q2" value="ariel"> O mar e a liberdade</label>
+        <label><input type="radio" name="q2" value="bela"> Uma biblioteca tranquila</label>
+        <label><input type="radio" name="q2" value="cinderela"> Um lar cheio de amor</label>
+        <label><input type="radio" name="q2" value="rapunzel"> Um jardim florido</label>
+        <label><input type="radio" name="q2" value="elsa"> Montanhas e neve</label>
+      </div>
+
+      <div class="question">
+        <p>3️⃣ Qual dessas cores você mais gosta?</p>
+        <label><input type="radio" name="q3" value="bela"> Dourado</label>
+        <label><input type="radio" name="q3" value="ariel"> Vermelho coral</label>
+        <label><input type="radio" name="q3" value="cinderela"> Azul-claro</label>
+        <label><input type="radio" name="q3" value="rapunzel"> Roxo</label>
+        <label><input type="radio" name="q3" value="elsa"> Azul-gelo</label>
+      </div>
+
+      <div class="question">
+        <p>4️⃣ O que você mais valoriza em uma amizade?</p>
+        <label><input type="radio" name="q4" value="bela"> Conversas profundas</label>
+        <label><input type="radio" name="q4" value="ariel"> Aventuras juntos</label>
+        <label><input type="radio" name="q4" value="cinderela"> Apoio e lealdade</label>
+        <label><input type="radio" name="q4" value="rapunzel"> Alegria e leveza</label>
+        <label><input type="radio" name="q4" value="elsa"> Confiança e silêncio confortável</label>
+      </div>
+
+      <div class="question">
+        <p>5️⃣ Qual dessas frases te define?</p>
+        <label><input type="radio" name="q5" value="bela"> “A beleza está no coração.”</label>
+        <label><input type="radio" name="q5" value="ariel"> “Quero fazer parte desse mundo!”</label>
+        <label><input type="radio" name="q5" value="cinderela"> “Os sonhos se realizam.”</label>
+        <label><input type="radio" name="q5" value="rapunzel"> “Deixe sua luz brilhar!”</label>
+        <label><input type="radio" name="q5" value="elsa"> “O frio nunca me incomodou.”</label>
+      </div>
+
+      <button type="submit" class="btn">Descobrir minha princesa 👑</button>
+    </form>
+
+    <div id="resultado" class="resultado oculto">
+      <h2 id="princesa-nome"></h2>
+      <img id="princesa-imagem" src="" alt="" />
+      <p id="princesa-frase"></p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

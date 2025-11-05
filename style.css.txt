@@ -1,0 +1,92 @@
+body {
+  background: linear-gradient(135deg, #fce4ec, #ede7f6);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #4b2e83;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  color: #d81b60;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+}
+
+.quiz-container {
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.85);
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(218, 112, 214, 0.3);
+}
+
+.question {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.question p {
+  font-weight: 500;
+  color: #7b1fa2;
+}
+
+label {
+  display: block;
+  margin: 5px 0;
+}
+
+.btn {
+  background: linear-gradient(90deg, #d81b60, #ab47bc);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #ab47bc, #d81b60);
+  transform: scale(1.05);
+}
+
+.resultado {
+  margin-top: 30px;
+}
+
+.oculto {
+  display: none;
+}
+
+.resultado img {
+  width: 180px;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+}
+
+.princess-banner {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.princess-banner img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 192, 203, 0.6);
+  transition: transform 0.3s;
+}
+
+.princess-banner img:hover {
+  transform: scale(1.1);
+}
