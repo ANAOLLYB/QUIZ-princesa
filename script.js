@@ -4,8 +4,8 @@ const quizData = [
     options: ["Curiosa", "Elegante", "Sonhadora", "Corajosa", "Gentil"]
   },
   {
-    question: "Onde você mais gostaria de estar?",
-    options: ["No fundo do mar", "Num castelo de gelo", "Em um baile real", "Em uma torre com vista linda", "Em uma biblioteca encantada"]
+    question: "Qual dessas palavras mais te representa?",
+    options: ["Liberdade", "Força", "Esperança", "Criatividade", "Sabedoria"]
   },
   {
     question: "Qual dessas cores você mais ama?",
@@ -23,23 +23,23 @@ const quizData = [
 
 const resultData = {
   "Ariel": {
-    img: "ariel.jpg",
+    img: "ariel.png",
     text: "Você é a Ariel! Curiosa e aventureira, você acredita que sempre há algo novo para descobrir!"
   },
   "Elsa": {
-    img: "elsa.jpg",
+    img: "elsa.png",
     text: "Você é a Elsa! Forte e confiante, aprendeu que o amor é o verdadeiro poder que transforma tudo!"
   },
   "Cinderela": {
-    img: "cinderela.jpg",
+    img: "cinderela.png",
     text: "Você é a Cinderela! Mesmo diante das dificuldades, seu coração puro e gentil sempre brilha!"
   },
   "Rapunzel": {
-    img: "rapunzel.jpg",
+    img: "rapunzel.png",
     text: "Você é a Rapunzel! Criativa e sonhadora, você ilumina a vida de quem está ao seu redor!"
   },
   "Bela": {
-    img: "bela.jpg",
+    img: "bela.png",
     text: "Você é a Bela! Ama conhecimento e enxerga a beleza que vai além das aparências!"
   }
 };
@@ -105,3 +105,4 @@ function restartQuiz() {
 }
 
 showQuestion();
+
