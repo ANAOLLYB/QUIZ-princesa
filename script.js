@@ -4,8 +4,8 @@ const quizData = [
     options: ["Curiosa", "Elegante", "Sonhadora", "Corajosa", "Gentil"]
   },
   {
-    question: "Qual dessas palavras mais te representa?",
-    options: ["Liberdade", "Força", "Esperança", "Criatividade", "Sabedoria"]
+    question: "Qual dessas comidas você escolheria?",
+    options: ["Frutas frescas", "Chocolate quente", "Bolo de baunilha", "Torta de frutas feita em casa", "Croissant com café"]
   },
   {
     question: "Qual dessas cores você mais ama?",
@@ -68,11 +68,11 @@ function showQuestion() {
 
 function selectAnswer(option) {
   // Atribui pontos a princesas conforme palavras-chave
-  if (["Curiosa", "No fundo do mar", "Verde-água", "Curiosidade", "Sigo meu coração"].includes(option)) score.Ariel++;
-  if (["Elegante", "Num castelo de gelo", "Azul", "Autoconfiança", "Mantenho a calma"].includes(option)) score.Elsa++;
-  if (["Sonhadora", "Em um baile real", "Dourado", "Esperança", "Acredito em milagres"].includes(option)) score.Cinderela++;
-  if (["Corajosa", "Em uma torre com vista linda", "Roxo", "Criatividade", "Encontro um jeito novo"].includes(option)) score.Rapunzel++;
-  if (["Gentil", "Em uma biblioteca encantada", "Amarelo", "Inteligência", "Aprendo e cresço com eles"].includes(option)) score.Bela++;
+  if (["Curiosa", "Frutas frescas", "Verde-água", "Curiosidade", "Sigo meu coração"].includes(option)) score.Ariel++;
+  if (["Elegante", "Chocolate quente", "Azul", "Autoconfiança", "Mantenho a calma"].includes(option)) score.Elsa++;
+  if (["Sonhadora", "Bolo de baunilha", "Dourado", "Esperança", "Acredito em milagres"].includes(option)) score.Cinderela++;
+  if (["Corajosa", "Torta de frutas feita em casa", "Roxo", "Criatividade", "Encontro um jeito novo"].includes(option)) score.Rapunzel++;
+  if (["Gentil", "Croissant com café", "Amarelo", "Inteligência", "Aprendo e cresço com eles"].includes(option)) score.Bela++;
 
   currentQuestion++;
   if (currentQuestion < quizData.length) {
@@ -105,4 +105,5 @@ function restartQuiz() {
 }
 
 showQuestion();
+
 
