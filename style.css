@@ -99,7 +99,7 @@ button:hover {
 }
 
 .result img {
-  width: 200px;
+  width: 125px;
   max-width: 85%;
   border-radius: 20px;
   margin-top: 20px;
@@ -157,5 +157,6 @@ footer span {
     width: 160px;
   }
 }
+
 
 
