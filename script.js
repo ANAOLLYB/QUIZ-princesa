@@ -1,54 +1,107 @@
-document.getElementById("quiz-form").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  const respostas = [];
-  for (let i = 1; i <= 5; i++) {
-    const resposta = document.querySelector(`input[name="q${i}"]:checked`);
-    if (resposta) respostas.push(resposta.value);
+const quizData = [
+  {
+    question: "Qual dessas palavras mais combina com você?",
+    options: ["Curiosa", "Elegante", "Sonhadora", "Corajosa", "Gentil"]
+  },
+  {
+    question: "Onde você mais gostaria de estar?",
+    options: ["No fundo do mar", "Num castelo de gelo", "Em um baile real", "Em uma torre com vista linda", "Em uma biblioteca encantada"]
+  },
+  {
+    question: "Qual dessas cores você mais ama?",
+    options: ["Verde-água", "Azul", "Dourado", "Roxo", "Amarelo"]
+  },
+  {
+    question: "Qual dessas qualidades te define?",
+    options: ["Curiosidade", "Autoconfiança", "Esperança", "Criatividade", "Inteligência"]
+  },
+  {
+    question: "Como você age diante de desafios?",
+    options: ["Sigo meu coração", "Mantenho a calma", "Acredito em milagres", "Encontro um jeito novo", "Aprendo e cresço com eles"]
   }
+];
 
-  if (respostas.length < 5) {
-    alert("Responda todas as perguntas para descobrir sua princesa!");
-    return;
+const resultData = {
+  "Ariel": {
+    img: "ariel.jpg",
+    text: "Você é a Ariel! Curiosa e aventureira, você acredita que sempre há algo novo para descobrir!"
+  },
+  "Elsa": {
+    img: "elsa.jpg",
+    text: "Você é a Elsa! Forte e confiante, aprendeu que o amor é o verdadeiro poder que transforma tudo!"
+  },
+  "Cinderela": {
+    img: "cinderela.jpg",
+    text: "Você é a Cinderela! Mesmo diante das dificuldades, seu coração puro e gentil sempre brilha!"
+  },
+  "Rapunzel": {
+    img: "rapunzel.jpg",
+    text: "Você é a Rapunzel! Criativa e sonhadora, você ilumina a vida de quem está ao seu redor!"
+  },
+  "Bela": {
+    img: "bela.jpg",
+    text: "Você é a Bela! Ama conhecimento e enxerga a beleza que vai além das aparências!"
   }
+};
 
-  const contagem = {};
-  respostas.forEach(r => contagem[r] = (contagem[r] || 0) + 1);
+const quizContainer = document.getElementById("quiz");
+const resultContainer = document.getElementById("result");
 
-  const princesa = Object.keys(contagem).reduce((a, b) => contagem[a] > contagem[b] ? a : b);
+let currentQuestion = 0;
+let score = {
+  "Ariel": 0,
+  "Elsa": 0,
+  "Cinderela": 0,
+  "Rapunzel": 0,
+  "Bela": 0
+};
 
-  const princesas = {
-    bela: {
-      nome: "Bela 🌹",
-      imagem: "imagens/bela.png",
-      frase: "Você é sábia, graciosa e enxerga a beleza que está no coração."
-    },
-    ariel: {
-      nome: "Ariel 🐚",
-      imagem: "imagens/ariel.png",
-      frase: "Você é curiosa e corajosa, pronta para viver novas aventuras!"
-    },
-    cinderela: {
-      nome: "Cinderela 👠",
-      imagem: "imagens/cinderela.png",
-      frase: "Você mantém a fé mesmo nos dias difíceis e acredita no poder dos sonhos."
-    },
-    rapunzel: {
-      nome: "Rapunzel 🌸",
-      imagem: "imagens/rapunzel.png",
-      frase: "Você tem uma luz própria que ilumina o mundo ao seu redor!"
-    },
-    elsa: {
-      nome: "Elsa ❄️",
-      imagem: "imagens/elsa.png",
-      frase: "Você é forte, reservada e tem um coração nobre — o frio nunca te incomodou."
-    }
-  };
+function showQuestion() {
+  const question = quizData[currentQuestion];
+  quizContainer.innerHTML = `
+    <h2>${question.question}</h2>
+    ${question.options.map(option => `
+      <button onclick="selectAnswer('${option}')">${option}</button>
+    `).join("")}
+  `;
+}
 
-  const resultado = princesas[princesa];
-  document.getElementById("princesa-nome").textContent = resultado.nome;
-  document.getElementById("princesa-imagem").src = resultado.imagem;
-  document.getElementById("princesa-frase").textContent = resultado.frase;
+function selectAnswer(option) {
+  // Atribui pontos a princesas conforme palavras-chave
+  if (["Curiosa", "No fundo do mar", "Verde-água", "Curiosidade", "Sigo meu coração"].includes(option)) score.Ariel++;
+  if (["Elegante", "Num castelo de gelo", "Azul", "Autoconfiança", "Mantenho a calma"].includes(option)) score.Elsa++;
+  if (["Sonhadora", "Em um baile real", "Dourado", "Esperança", "Acredito em milagres"].includes(option)) score.Cinderela++;
+  if (["Corajosa", "Em uma torre com vista linda", "Roxo", "Criatividade", "Encontro um jeito novo"].includes(option)) score.Rapunzel++;
+  if (["Gentil", "Em uma biblioteca encantada", "Amarelo", "Inteligência", "Aprendo e cresço com eles"].includes(option)) score.Bela++;
 
-  document.getElementById("resultado").classList.remove("oculto");
-});
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  const princess = Object.keys(score).reduce((a, b) => score[a] > score[b] ? a : b);
+  const { img, text } = resultData[princess];
+
+  quizContainer.classList.add("hidden");
+  resultContainer.classList.remove("hidden");
+  resultContainer.innerHTML = `
+    <h2>${princess}</h2>
+    <img src="${img}" alt="${princess}">
+    <p>${text}</p>
+    <button onclick="restartQuiz()">Refazer o quiz</button>
+  `;
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  for (let p in score) score[p] = 0;
+  resultContainer.classList.add("hidden");
+  quizContainer.classList.remove("hidden");
+  showQuestion();
+}
+
+showQuestion();
