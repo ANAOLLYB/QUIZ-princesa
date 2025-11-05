@@ -79,3 +79,19 @@ button:hover {
   50% { box-shadow: 0 0 25px pink; }
   100% { box-shadow: 0 0 10px gold; }
 }
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  color: #a56bcc;
+  font-size: 22px;
+  animation: brilho 3s infinite alternate;
+}
+
+@keyframes brilho {
+  0% { text-shadow: 0 0 10px gold; }
+  100% { text-shadow: 0 0 20px pink; }
+}
+
+
